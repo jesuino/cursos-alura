@@ -1,0 +1,24 @@
+<canvas id="tela" width="600" height="400"></canvas>
+<script>
+var tela = document.getElementById("tela");
+var c = tela.getContext("2d");
+
+c.fillStyle="gray";
+c.fillRect(0, 0, 600, 400);
+
+tela.onclick = function(evento) {
+    var x = evento.pageX - tela.offsetLeft;
+    var y = evento.pageY - tela.offsetTop;
+    var b = evento.button;
+    evento.preventDefault();
+    c.beginPath();  
+    if(b == 0) {
+	c.fillStyle="blue";
+    } else if (b == 2) {
+        c.fillStyle="red";
+    }
+    c.arc(x, y, 10, 0, 2*3.14);
+    c.fill();
+    console.log("posição do clique : " + x + ", " + y);
+};
+</script>

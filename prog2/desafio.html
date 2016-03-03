@@ -1,0 +1,89 @@
+<canvas id="tela" width="600" height="400"></canvas>
+
+<script>
+var tela = document.getElementById("tela");
+var c = tela.getContext("2d");
+var alvoX,  alvoY;
+var posX, posY;
+var raio = 40, tamanhoMira = 10;;
+
+var cor  = function(corStr) {
+    c.fillStyle = corStr;
+}
+
+var circulo = function(x, y, raio) {
+    c.beginPath();
+    c.arc(x, y, raio, 0, 2*Math.PI);
+    c.fill();
+};
+
+var desenhaAlvo = function(x, y) {
+    cor("white");
+    circulo(x, y, raio);
+    cor("red");
+    circulo(x, y, raio-10);
+    cor("white");
+    circulo(x, y, raio-20);
+    cor("red");
+    circulo(x, y, raio-30);
+};
+
+var sorteia = function(n) {
+    return Math.random() * n;  
+}
+
+var limpaTela = function() {
+    c.clearRect(0, 0, 600, 400);
+};
+
+var verificaAcerto = function(evt) {
+    var clickX = evt.pageX - tela.offsetLeft;
+    var clickY = evt.pageY - tela.offsetTop;
+    var areaAcerto = raio - 30;
+    var minX = alvoX - areaAcerto;
+    var maxX = alvoX + areaAcerto;
+    var minY = alvoY - areaAcerto;
+    var maxY = alvoY + areaAcerto;
+    console.log("min: " + minX + ", " + minY + " - max: " + maxX + ", " + maxY + " - click: " + clickX + ", " + clickY);
+    if(clickX > minX && clickX < maxX && clickY < maxY && clickY > minY) {
+        alert("Acertou o alvo!");
+    }
+}
+
+var pegaPos = function(evt) {
+    posX = evt.pageX - tela.offsetLeft;
+    posY = evt.pageY - tela.offsetTop;
+}
+
+var desenhaMira = function(evt) {
+    c.strokeStyle = "black";
+    c.beginPath();
+    c.moveTo(posX, posY);
+    c.lineTo(posX + tamanhoMira, posY);
+    c.stroke();
+    c.lineTo(posX - tamanhoMira, posY);
+    c.stroke();
+    c.lineTo(posX, posY + tamanhoMira);
+    c.stroke();    
+    c.lineTo(posX, posY - tamanhoMira);    
+    c.stroke();
+}
+var controle = 0;
+var desenha = function() {
+    limpaTela();
+    // o alvo só troca de posição a cada 1 segundo
+    if(controle % 10 == 0) {
+        alvoX = sorteia(600);
+        alvoY = sorteia(400);
+	controle = 0;
+    }
+    desenhaAlvo(alvoX, alvoY);
+    desenhaMira();
+    controle++;
+};
+
+setInterval(desenha, 100);
+tela.onclick = verificaAcerto;
+tela.onmousemove = pegaPos;
+
+</script>

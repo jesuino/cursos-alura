@@ -1,0 +1,54 @@
+Instalação do Node.js e baixando o projeto
+
+
+## Preparando o ambiente
+
+Nosso foco não é aprender como criar uma aplicação web. Para isso tem treinamentos e trilhas especificas na Alura. Porém, para testar o protocolo HTTP, um servidor web deve rodar localmente em sua máquina. Para que você não perde tempo e não caia em questões de infraestrutura que dizem respeito a um servidor web, disponibilizamos esse projeto com tudo necessário para subir um servidor localmente.
+
+Usamos a plataforma *Node.js*.O [1] é um ambiente JavaScript multiplataforma disponível para Linux, Mac e Windows. Para instalá-lo, siga as instruções abaixo referentes a sua plataforma:
+
+## Windows
+
+Baixe o instalador clicando no grande botão `install` diretamente da página do [Node.js][3].
+
+## Linux (Ubuntu)
+
+No Ubuntu, através do terminal (permissão de administrador necessária) execute o comando abaixo:
+```
+sudo apt-get install -y nodejs
+```
+
+ATENÇÃO: em algumas distribuições Linux, pode haver um conflito de nomes quando o Node é instalado pelo apt-get. Neste caso específico, no lugar do binário ser node, ele passa a se chamar **nodejs**. Se o seu sistema é uma dessas distribuições, não se preocupe, basta trocar a chamada node por nodejs.
+
+## MAC
+O homebrew[2] é a maneira mais recomendada para instalar o Node.js em sua máquina através do comando:
+
+```
+brew update
+brew install node
+```
+
+Não usa homebrew? Sem problema, baixe o instalador clicando no grande botão `install` diretamente da página do Node.js[2].
+
+## Rodando o servidor 
+
+Depois do Node.js ter sido instalado, abre um terminal (linha de comando) e entre na pasta do projeto `http-server. `**Dentro da pasta do projeto http-server** que você descompactou anteriormente, busque todas as dependências do projeto através comando: (prompt de comando, no caso do Windows):
+
+```
+npm install
+```
+
+Em menos de um minuto, todas as dependências para rodar o servidor terão sido baixadas. Para subi-lo utilizamos o comando:
+
+```
+npm start
+```
+Repare que seu terminal ficará aguardando indefinidamente, sinal de que o servidor está escutando. Agora é só abrir o navegador no endereço `http://localhost:3000`. Uma página de boas-vindas será exibida.
+
+## Curiosidade
+
+O projeto http-server utiliza Express[3] para atender as requisições HTTP.
+
+  [1]: https://nodejs.org/
+  [2]: http://brew.sh/
+  [3]: http://expressjs.com/
