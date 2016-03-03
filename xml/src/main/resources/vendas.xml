@@ -1,0 +1,17 @@
+<venda moeda="real">
+	<formaPagamento>cartão</formaPagamento>
+	<produtos>
+		<produto>
+			<nome>Pão</nome>
+			<preco>1</preco>
+		</produto>
+		<produto>
+			<nome>Arroz</nome>
+			<preco>10</preco>
+		</produto>
+		<produto>
+			<nome>Feijão</nome>
+			<preco>5</preco>
+		</produto>
+	</produtos>
+</venda>
