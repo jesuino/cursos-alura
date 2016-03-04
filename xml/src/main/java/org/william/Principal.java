@@ -12,6 +12,9 @@ public class Principal {
 	
 	public static void main(String[] args) throws Exception {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		factory.setValidating(true);
+		factory.setNamespaceAware(true);
+		factory.setAttribute("http://java.sun.com/xml/jaxp/properties/schemaLanguage", "http://www.w3.org/2001/XMLSchema");
 		DocumentBuilder builder = factory.newDocumentBuilder();
 		Document document = builder.parse(Principal.class.getResourceAsStream("/vendas.xml"));
 		

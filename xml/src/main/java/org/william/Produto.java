@@ -17,10 +17,10 @@ public class Produto {
 	public double getPreco() {
 		return preco;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Nome: "  + nome + ", preço: " + preco;
+		return "Nome: " + nome + ", preço: " + preco;
 	}
-	
+
 }
