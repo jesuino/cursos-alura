@@ -1,4 +1,4 @@
-package org.william;
+package org.william.model;
 
 public class Produto {
 
@@ -10,12 +10,23 @@ public class Produto {
 		this.preco = preco;
 	}
 
+	public Produto() {
+	}
+
 	public String getNome() {
 		return nome;
 	}
 
 	public double getPreco() {
 		return preco;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setPreco(double preco) {
+		this.preco = preco;
 	}
 
 	@Override
