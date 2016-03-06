@@ -10,9 +10,9 @@ import org.xml.sax.helpers.DefaultHandler;
 
 public class ProdutoHandler extends DefaultHandler {
 
-	private static final String EL_PRECO = "preco";
-	private static final String EL_NOME = "nome";
-	private static final String EL_PRODUTO = "produto";
+	public static final String EL_PRECO = "preco";
+	public static final String EL_NOME = "nome";
+	public static final String EL_PRODUTO = "produto";
 
 	private Produto produto;
 	private List<Produto> produtos = new ArrayList<Produto>();
