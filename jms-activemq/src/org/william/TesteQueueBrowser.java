@@ -21,6 +21,7 @@ public class TesteQueueBrowser {
 		Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		Destination destination = (Destination) ctx.lookup("financeiro");
 		QueueBrowser browser = session.createBrowser((Queue) destination);
+		@SuppressWarnings("unchecked")
 		Enumeration<Message> enumeration = browser.getEnumeration();
 		// Mensagens não consumidas
 		while (enumeration.hasMoreElements()) {
