@@ -8,6 +8,9 @@ import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.naming.InitialContext;
 
+import br.com.caelum.modelo.Pedido;
+import br.com.caelum.modelo.PedidoFactory;
+
 public class TesteProdutor {
 	public static void main(String[] args) throws Exception {
 		InitialContext ctx = new InitialContext();
@@ -17,10 +20,9 @@ public class TesteProdutor {
 		Session session = conn.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		Destination destination = (Destination) ctx.lookup("financeiro");
 		MessageProducer producer = session.createProducer(destination);
-		for (int i = 0; i < 1000; i++) {
-			Message m = session.createTextMessage("Olá Mundo pela " + i+1 + " vez");
-			producer.send(m);
-		}
+		Pedido pedido = new PedidoFactory().geraPedidoComValores();
+		Message m = session.createObjectMessage(pedido);
+		producer.send(m);
 		session.close();
 		conn.close();
 		ctx.close();
