@@ -13,6 +13,8 @@ public class Lambdas {
 		palavras.sort((String o1, String o2)  -> o1.length() - o2.length());
 
 		palavras.forEach(t -> System.out.println(t));
+		
+		new Thread(() -> System.out.println("Hello lambda and thread")).start();
 
 	}
 }
