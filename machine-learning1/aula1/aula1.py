@@ -26,7 +26,6 @@ resultado = algoritmo.predict(teste)
 diferenca = resultado - marcacoes_teste
 total_acertos = len([ a for a in diferenca if a == 0])
 total_testes = len(teste)
-print total_acertos,  total_testes
 taxa_acertos = 100.0 * (total_acertos / float(total_testes))
 print resultado 
 print "Total de acertos: ", taxa_acertos
