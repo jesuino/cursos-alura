@@ -1,3 +1,4 @@
-# cursos-alura
+# Estudos
 
-Minhas coisinhas que faço no http://alura.com.br
+Material de cursos que fiz no Alura -> http://alura.com.br
+Aulas da vida
